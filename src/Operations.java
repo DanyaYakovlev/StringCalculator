@@ -5,15 +5,29 @@ public class Operations {
     }
 
     public static String minus(String[] data) {
-        String result;
-        if (data[0].contains(data[1])) {
-            int r = data[0].length() - data[1].length();
-            result = data[0].substring(0, r);
-        } else {
+        int index = data[0].indexOf(data[1]);
+        if (index == -1) {
             return data[0];
+        } else {
+            String result = data[0].substring(0, index);
+            result += data[0].substring(index + data[1].length());
+            return result;
         }
-        return result;
     }
+//        String result, delete;
+//        delete = data[1];
+//        result = data[0].replace(delete, "");
+//        return result;
+//    }
+//        String result;
+//        if (data[0].contains(data[1])) {
+//            int r = data[0].length() - data[1].length();
+//            result = data[0].substring(0, r);
+//        } else {
+//            return data[0];
+//        }
+//        return result;
+//    }
 
     public static String multiplication(String[] data) throws Exception {
         String result = data[0].repeat(Integer.parseInt(data[1]));

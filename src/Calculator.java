@@ -34,7 +34,9 @@ public class Calculator {
                 modifiedData[i] = data[i].replace("\"", "");
             }
         } else throw new Exception("Первый элемент должен быть строкой");
-
+        if (!(data[0].length() <= 11)) {
+            throw new Exception("Вводимая строка должна быть не больше 10");
+        }
         result = switch (action) {
             case '+' -> Operations.plus(modifiedData);
             case '-' -> Operations.minus(modifiedData);
